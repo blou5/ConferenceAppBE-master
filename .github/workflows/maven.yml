@@ -31,10 +31,10 @@ jobs:
         run: mvn clean install
 
       - name: Build and Push Docker Image
-        uses: mr-smithers-excellent/docker-build-push@v4
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: blou5/gsd
-          tags: latest
+          tags: something
           registry: docker.io
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
