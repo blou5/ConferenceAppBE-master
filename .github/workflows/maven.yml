@@ -34,6 +34,6 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: blou5/gsd
-          registry: docker.io
+          registry: docker.io/blou5/gsd
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
