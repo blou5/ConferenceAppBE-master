@@ -216,14 +216,14 @@
         <profile>
             <id>sonar</id>
             <properties>
-                <sonar.token>8d5139c12456b6712abf0df3c7c98d5fb6418997</sonar.token>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
                 <sonar.organization>blou5</sonar.organization>
                 <sonar.projectKey>blou5_ConferenceAppBE-master</sonar.projectKey>
                 <sonar.sources>src/main/java</sonar.sources>
+<!--                <sonar.login>8d5139c12456b6712abf0df3c7c98d5fb6418997</sonar.login>-->
             </properties>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
