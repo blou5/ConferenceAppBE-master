@@ -17,6 +17,7 @@
         <java.version>11</java.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <jacoco.version>0.8.8</jacoco.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -192,11 +193,20 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.10.0.2594</version>
-            </plugin>
+<!--            <plugin>-->
+
+<!--                <groupId>org.sonarsource.scanner.maven</groupId>-->
+<!--                <artifactId>sonar-maven-plugin</artifactId>-->
+<!--                <version>3.10.0.2594</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>sonar</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
@@ -204,10 +214,12 @@
         <profile>
             <id>sonar</id>
             <properties>
-                <sonar.organization>blou5</sonar.organization>
+                <sonar.token>8d5139c12456b6712abf0df3c7c98d5fb6418997</sonar.token>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-            </properties>
+                <sonar.organization>blou5</sonar.organization>
+                <sonar.projectKey>blou5_ConferenceAppBE-master</sonar.projectKey>
 
+            </properties>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
