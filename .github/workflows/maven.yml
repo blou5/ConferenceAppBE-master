@@ -10,9 +10,15 @@ name: build
 
 on:
   push:
-    branches: [ "master" ]
+    paths:
+      -"src/**"
+    branches:  "master"
+
   pull_request:
+    paths:
+      -"src/**"
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -27,6 +33,9 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+      - name: Test API
+        run: mvn clean install
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+
 
