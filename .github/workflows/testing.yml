@@ -29,8 +29,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-          cache: maven
-          cache-dependency-path: 'pom.xml'
+#          cache: maven
       - name: Test API
         run: mvn clean install
       - name: Build with Maven
