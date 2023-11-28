@@ -13,6 +13,4 @@ public class LoginUser {
 
     private String username;
 
-
-
 }
