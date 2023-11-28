@@ -5,6 +5,7 @@ import al.crystal.conferenceApp.model.Event;
 import al.crystal.conferenceApp.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.webjars.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,7 +22,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/organiser/{id}")
-    public List<EventDTO> getAllEventsByOrganiserId(@PathVariable Long id) throws Exception {
+    public List<EventDTO> getAllEventsByOrganiserId(@PathVariable Long id) throws NotFoundException {
         return this.eventService.getAllEventsByOrganiserId(id);
     }
 
