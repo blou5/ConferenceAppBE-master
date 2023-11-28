@@ -10,8 +10,13 @@ name: build
 
 on:
   push:
-    branches: [ "master" ]
+    paths:
+      -"src/**"
+    branches:  "master"
+
   pull_request:
+    paths:
+      -"src/**"
     branches: [ "master" ]
   workflow_dispatch:
 
