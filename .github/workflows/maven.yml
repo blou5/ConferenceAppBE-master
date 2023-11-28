@@ -12,7 +12,7 @@ on:
   push:
     paths:
       -"src/**"
-    branches:  "master"
+    branches:  ["master"]
 
   pull_request:
     paths:
