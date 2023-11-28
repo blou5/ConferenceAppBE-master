@@ -11,5 +11,6 @@ public class LoginUser {
     private String email;
     private String password;
 
+    private String username;
 
 }
