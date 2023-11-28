@@ -223,7 +223,8 @@
 <!--                <sonar.login>8d5139c12456b6712abf0df3c7c98d5fb6418997</sonar.login>-->
             </properties>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault> false</activeByDefault>
+
             </activation>
             <build>
                 <plugins>
