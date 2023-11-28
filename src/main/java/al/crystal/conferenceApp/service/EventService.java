@@ -106,12 +106,14 @@ public class EventService {
         return this.getAllEvents();
     }
 
-    public List<EventDTO> getAllEventsByOrganiserId(Long id) {
+    public List<EventDTO> getAllEventsByOrganiserId(Long id) throws Exception {
         Optional<Organiser> optionalOrganiser = this.organiserRepository.findById(id);
-        Organiser organiser = optionalOrganiser.get();
-
-        List<Event> eventByOrganiser = this.eventRepository.findByOrganiser(organiser);
-        return eventByOrganiser.stream().map(EventMap::toDto).collect(Collectors.toList());
+        if(optionalOrganiser.isPresent()) {
+            Organiser organiser = optionalOrganiser.get();
+            List<Event> eventByOrganiser = this.eventRepository.findByOrganiser(organiser);
+            return eventByOrganiser.stream().map(EventMap::toDto).collect(Collectors.toList());
+        }
+        throw new Exception("not present");
     }
 
     public boolean subscribePlan(String subscriber, Long eventId, String plan) {
