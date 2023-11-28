@@ -10,11 +10,14 @@ name: build
 
 on:
   push:
-    branches-ignore:
-      - 'master'
+    branches:  ["master"]
     paths:
-        - "src/**"
+      - "src/**"
 
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - "src/**"
 #  workflow_dispatch:
 
 jobs:
@@ -34,5 +37,3 @@ jobs:
         run: mvn clean install
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-
-
