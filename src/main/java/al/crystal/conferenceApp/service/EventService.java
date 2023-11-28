@@ -14,6 +14,7 @@ import al.crystal.conferenceApp.repository.*;
 import com.github.javafaker.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -106,12 +107,14 @@ public class EventService {
         return this.getAllEvents();
     }
 
-    public List<EventDTO> getAllEventsByOrganiserId(Long id) {
+    public List<EventDTO> getAllEventsByOrganiserId(Long id) throws NotFoundException {
         Optional<Organiser> optionalOrganiser = this.organiserRepository.findById(id);
-        Organiser organiser = optionalOrganiser.get();
-
-        List<Event> eventByOrganiser = this.eventRepository.findByOrganiser(organiser);
-        return eventByOrganiser.stream().map(EventMap::toDto).collect(Collectors.toList());
+        if(optionalOrganiser.isPresent()) {
+            Organiser organiser = optionalOrganiser.get();
+            List<Event> eventByOrganiser = this.eventRepository.findByOrganiser(organiser);
+            return eventByOrganiser.stream().map(EventMap::toDto).collect(Collectors.toList());
+        }
+        throw new NotFoundException("not present");
     }
 
     public boolean subscribePlan(String subscriber, Long eventId, String plan) {
