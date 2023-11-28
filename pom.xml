@@ -195,20 +195,7 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
 
-<!--                <groupId>org.sonarsource.scanner.maven</groupId>-->
-<!--                <artifactId>sonar-maven-plugin</artifactId>-->
-<!--                <version>3.10.0.2594</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>verify</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>sonar</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 
@@ -220,11 +207,9 @@
                 <sonar.organization>blou5</sonar.organization>
                 <sonar.projectKey>blou5_ConferenceAppBE-master</sonar.projectKey>
                 <sonar.sources>src/main/java</sonar.sources>
-<!--                <sonar.login>8d5139c12456b6712abf0df3c7c98d5fb6418997</sonar.login>-->
             </properties>
             <activation>
                 <activeByDefault> false</activeByDefault>
-
             </activation>
             <build>
                 <plugins>
