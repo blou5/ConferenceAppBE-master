@@ -84,4 +84,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/app:latest
+          tags: blou5/gsd:latest
