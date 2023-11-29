@@ -197,6 +197,7 @@
             </plugin>
 
         </plugins>
+        <finalName>conference-app</finalName>
     </build>
 
     <profiles>
