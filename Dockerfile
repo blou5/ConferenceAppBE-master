@@ -1,6 +1,11 @@
-FROM maven:3.8.3-jdk-11-slim
-RUN mvn clean build
-RUN ls -la
-EXPOSE 8080
-ADD target/conference-app.jar conference-app.jar
-ENTRYPOINT ["java","-jar","/conference-app.jar"]
+FROM maven:3.8.3-jdk-11-slim AS build
+
+WORKDIR /project
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src/ /project/src
+
+RUN mvn package
+
