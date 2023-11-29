@@ -87,5 +87,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: Dockerfile
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
           push: true
           tags: blou5/gsd:latest
