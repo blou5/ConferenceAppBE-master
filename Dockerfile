@@ -1,28 +1,5 @@
-FROM maven:3.8.3-jdk-11-slim AS build
-
-WORKDIR /project
-
-COPY pom.xml .
-RUN mvn dependency:go-offline
-
-COPY src/ /project/src
-
-RUN mvn package
-
-FROM adoptopenjdk/openjdk11:jre-11.0.15_10-alpine
-
-RUN mkdir /app
-
-RUN addgroup -g 1001 -S tecogroup
-
-RUN adduser -S teco -u 1001
-
-COPY --from=build /project/target/conference-app.jar /app/conference-app.jar
-
-WORKDIR /app
-
-RUN chown -R teco:tecogroup /app
-
-EXPOSE 8000
-
-CMD java $JAVA_OPTS -jar conference-app.jar
+FROM maven:3.8.3-jdk-11-slim
+RUN mvn clean build
+EXPOSE 8080
+ADD target/conference-app.jar conference-app.jar
+ENTRYPOINT ["java","-jar","/conference-app.jar"]
