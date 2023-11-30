@@ -22,7 +22,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/organiser/{id}")
-    public List<EventDTO> getAllEventsByOrganiserId(@PathVariable Long id) throws NotFoundException {
+    public List<EventDTO> getAllEventsByOrganiserId(@PathVariable Long id)  {
         return this.eventService.getAllEventsByOrganiserId(id);
     }
 
