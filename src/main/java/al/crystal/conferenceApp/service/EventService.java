@@ -107,7 +107,7 @@ public class EventService {
         return this.getAllEvents();
     }
 
-    public List<EventDTO> getAllEventsByOrganiserId(Long id) n {
+    public List<EventDTO> getAllEventsByOrganiserId(Long id)  {
         Optional<Organiser> optionalOrganiser = this.organiserRepository.findById(id);
 
             Organiser organiser = optionalOrganiser.get();
