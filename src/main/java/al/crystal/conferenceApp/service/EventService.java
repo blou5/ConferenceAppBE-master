@@ -107,14 +107,13 @@ public class EventService {
         return this.getAllEvents();
     }
 
-    public List<EventDTO> getAllEventsByOrganiserId(Long id) throws NotFoundException {
+    public List<EventDTO> getAllEventsByOrganiserId(Long id)  {
         Optional<Organiser> optionalOrganiser = this.organiserRepository.findById(id);
-        if(optionalOrganiser.isPresent()) {
+
             Organiser organiser = optionalOrganiser.get();
             List<Event> eventByOrganiser = this.eventRepository.findByOrganiser(organiser);
             return eventByOrganiser.stream().map(EventMap::toDto).collect(Collectors.toList());
-        }
-        throw new NotFoundException("not present");
+
     }
 
     public boolean subscribePlan(String subscriber, Long eventId, String plan) {
