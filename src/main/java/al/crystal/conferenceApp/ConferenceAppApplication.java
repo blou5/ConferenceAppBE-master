@@ -24,8 +24,6 @@ public class ConferenceAppApplication implements CommandLineRunner {
     @Autowired
     private OrganizerService organizerService;
 
-
-
     @Autowired
     private SpeakerRateRepository speakerRateRepository;
     @Autowired
