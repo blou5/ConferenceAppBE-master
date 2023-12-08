@@ -70,7 +70,7 @@ jobs:
     needs: sonar
     name: deploy to dev
     runs-on: ubuntu-latest
-#    if: "${{ github.event_name }}" == "push"
+    if: github.event_name  == 'push'
     environment: dev
     steps:
       - name: Print if deployed successfully
