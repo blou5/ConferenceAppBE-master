@@ -76,6 +76,16 @@ jobs:
       - name: Print if deployed successfully
         run: echo "success"
 
+  deploy-to-int:
+    needs: deploy-to-dev
+    name: deploy to int
+    runs-on: ubuntu-latest
+    if: github.event_name  == 'push'
+    environment: int
+    steps:
+      - name: Print if deployed successfully
+        run: echo "success"
+
 #  docker:
 #    needs: [sonar,build]
 #    runs-on: ubuntu-latest
